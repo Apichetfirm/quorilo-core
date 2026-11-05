@@ -1,0 +1,13 @@
+{
+  "name": "quorilo-reset-planner",
+  "version": "0.1.0-candidate.1",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "build": "node --check cli.mjs && node --check src/quota-plan.ts",
+    "example": "node cli.mjs --now=2026-11-02T00:00:00Z < example.json"
+  }
+}

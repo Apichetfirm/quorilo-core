@@ -1,0 +1,632 @@
+{
+  "schema": 1,
+  "edition": "FreeCore",
+  "licenseProposal": "MIT",
+  "files": [
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "bytes": 276,
+      "sha256": "530cb4bc2ea335aa61142679c2a516eabd402d7a1e0fb09f13ca9e1543630ca4"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "bytes": 173,
+      "sha256": "d589f18b05303087c33f6c27b06c3642b4fce257579857a7a0654acf03ff91c9"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 73,
+      "sha256": "71e05d319dfe49aaf4acbefb7d46c48f25a6f3cfbec8f529a6fc2a610386a5de"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "bytes": 1416,
+      "sha256": "e02d81d814e2308ccd6289010ba05cead3ab992ba40f9c11e0f513d80d7ddc1f"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 516,
+      "sha256": "8106b2f45b49dc45f1bb23566dd892a899f08e657d3f09fe52ab4705aafa90f3"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "bytes": 481,
+      "sha256": "3174269387ef550aeb888b19bfd0c58a564243b0dfe29851550b82937b0b3332"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 656,
+      "sha256": "c92a99a2d5396fe3aaca90ca814ef88a7862347d1d1f5cfdd262c83f1a1a0893"
+    },
+    {
+      "path": "DEPENDENCY-PROVENANCE.json",
+      "bytes": 1475,
+      "sha256": "18e235c05f812c5b3b6898cd618223bc9d57e5494d6ade1fa3ae817d3dba8ae9"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1069,
+      "sha256": "b6742872ceb6e95ac814b5fc561cec6a13d6651fdda6b79be0e61ce4ba12577b"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4041,
+      "sha256": "7a7a43a62e3b0d13c63c15e3a53729acc659083a8908ee64f72a4bdacb4d4c5b"
+    },
+    {
+      "path": "SECURITY.md",
+      "bytes": 669,
+      "sha256": "3ad14d378a288e8442934ea1e88e57ab05a7065b31f70aa3fdfd37ed8886694e"
+    },
+    {
+      "path": "SUPPORT.md",
+      "bytes": 905,
+      "sha256": "47a39bcb31db8c5be7b33d36206b4558e5e0c4514b8f9e9b93f52713241c5751"
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.md",
+      "bytes": 1278,
+      "sha256": "ffa1db5bc7bb4980a55b1e9ce5fdb05c46e33f703cdc5fef631c96c0e8b40be8"
+    },
+    {
+      "path": "desktop/assets/Fonts/NotoSansThai-Bold.ttf",
+      "bytes": 46364,
+      "sha256": "9e7dac5968a3cb8ee710f5eb0ef0024e2411b8525be29643949c0e7544cbb583"
+    },
+    {
+      "path": "desktop/assets/Fonts/NotoSansThai-Regular.ttf",
+      "bytes": 46380,
+      "sha256": "2166ddd8dd7650ac7a7d81fd229cacbe99c06cf559d93db3b37d356312deb405"
+    },
+    {
+      "path": "desktop/assets/Fonts/NotoSansThai-SemiBold.ttf",
+      "bytes": 46452,
+      "sha256": "74cda938886647a447a5e631d1b1457b2cf2f2d5cc5769c86b972b651451e151"
+    },
+    {
+      "path": "desktop/assets/Fonts/OFL.txt",
+      "bytes": 4380,
+      "sha256": "2e98fd23a52d253db8612cd5942c8f2ff4111b21d2367050fdca91d8ccc374a0"
+    },
+    {
+      "path": "desktop/assets/GeminiCLI-LICENSE.txt",
+      "bytes": 11357,
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+    },
+    {
+      "path": "desktop/assets/app.config",
+      "bytes": 199,
+      "sha256": "601e8aa2f94cb6f551b2a78b971130e48aa27c6616554467cd51bf20f97c94aa"
+    },
+    {
+      "path": "desktop/build_free_core.ps1",
+      "bytes": 6133,
+      "sha256": "316de4e604adfe75fdf812b73ec4846785cbea4a6e278f32f4d1f80780a0ca62"
+    },
+    {
+      "path": "desktop/compile-motion-shader.ps1",
+      "bytes": 2082,
+      "sha256": "e435a07fdcf71b3e236d07781d15508dc400c6e553038dc8d2e5215defe638e6"
+    },
+    {
+      "path": "desktop/compile-views.ps1",
+      "bytes": 1677,
+      "sha256": "939d09fcbd89fd3c32f822e12d5b12c97468409ee3a237bb0b23a8e9ca5552bd"
+    },
+    {
+      "path": "desktop/free-core/FREE-CORE-NOTICE.txt",
+      "bytes": 808,
+      "sha256": "4e058da3208ce4cf3cd2d922d8cc8318b710f9949b81927723135fdddfd3fc0a"
+    },
+    {
+      "path": "desktop/free-core/PRIVACY.th.md",
+      "bytes": 2912,
+      "sha256": "f6945e19adebaf6139514f600b6831fd7d0406f683a7036d11eed58bd5b035e0"
+    },
+    {
+      "path": "desktop/free-core/README.md",
+      "bytes": 2557,
+      "sha256": "16dd7178dce29bc5a3924dc9986a0a0be653d3f2f222fbe93b04b9778e35963e"
+    },
+    {
+      "path": "desktop/free-core/source-manifest.json",
+      "bytes": 3306,
+      "sha256": "cdd13292944148fa03c9d5a5e4478456d7639c3c65cf17fb1327e524b990f160"
+    },
+    {
+      "path": "desktop/src/AdditionalProviderRuntime.cs",
+      "bytes": 6713,
+      "sha256": "4fc39d1d7d5fce30536ad950b7b3d2f2c0446e93b62a6c8a925ba46ba60bbc55"
+    },
+    {
+      "path": "desktop/src/AdditionalProviderUsage.cs",
+      "bytes": 13294,
+      "sha256": "ec2577d4b2cb675dee5cbab968a79578a3eb5c008670906dcecf088ea3a720ec"
+    },
+    {
+      "path": "desktop/src/AlertPolicy.cs",
+      "bytes": 1666,
+      "sha256": "a7bb260badcdba6b0cb482e6cd0f32d961eb5fe7f39367296d82e9ba7d04b282"
+    },
+    {
+      "path": "desktop/src/BridgeProgram.cs",
+      "bytes": 433,
+      "sha256": "402a2810abbad85b2c5fbe80f357865f6d44accd4eb33a226e74c7fcb44719ab"
+    },
+    {
+      "path": "desktop/src/BurnRate.cs",
+      "bytes": 4631,
+      "sha256": "e7eb7b463508e7cb7b7b4a2dd2cac6f4e76032c9306ce6e402423702cb119dd8"
+    },
+    {
+      "path": "desktop/src/ClaudeBridge.cs",
+      "bytes": 11674,
+      "sha256": "055ce88a4a944b658e215c59c3536323c2ca42632934c992ffd8d55501295310"
+    },
+    {
+      "path": "desktop/src/ClaudeConfiguration.cs",
+      "bytes": 7065,
+      "sha256": "b4a02ef4b2a22fcad6e8ba02b788d92a81b12431336395b16d55c57cccefffff"
+    },
+    {
+      "path": "desktop/src/CodexAccountIdentity.cs",
+      "bytes": 1952,
+      "sha256": "8325c6493c82f4ff47c435191fefcbf7c65e2f289a6adfd738e7694a2279ab37"
+    },
+    {
+      "path": "desktop/src/CodexQuota.cs",
+      "bytes": 2218,
+      "sha256": "42f41abc7df37d4227a1456aabaa887d4ee93a828b25dc3bdba45364110f5a13"
+    },
+    {
+      "path": "desktop/src/CodexUsageClient.cs",
+      "bytes": 13863,
+      "sha256": "ea50fd1616e0edea5b5012d0c20226b5a95c2814b1b186d17ce6e3706dea0dd0"
+    },
+    {
+      "path": "desktop/src/CommerceView.cs",
+      "bytes": 19572,
+      "sha256": "b3c4fb47ac882e8cc26b1cd0104a08d35b90baa6d7702d0121a50e25eab2ba49"
+    },
+    {
+      "path": "desktop/src/CompiledViews.cs",
+      "bytes": 346,
+      "sha256": "809c64e953b783e963656029d957d5e68574e545c85c9feca7fa6f93676e85b7"
+    },
+    {
+      "path": "desktop/src/DesktopAppearance.cs",
+      "bytes": 55192,
+      "sha256": "330eb4d6cdc9357289235905b9bf7e4d576926cc53ec2515fb5ca755dce9c89d"
+    },
+    {
+      "path": "desktop/src/Experience.cs",
+      "bytes": 13932,
+      "sha256": "09cc8500082ce8c4bc3f61b21c04e8da9173494d63df3ccd2408670b9596caae"
+    },
+    {
+      "path": "desktop/src/FileUsageClient.cs",
+      "bytes": 3527,
+      "sha256": "2123bdd3e6986aee0d344259060910e206bdd78bfbf0f5a6251e00d93925e3ac"
+    },
+    {
+      "path": "desktop/src/FreeCoreServices.cs",
+      "bytes": 4648,
+      "sha256": "d98d6c4abca1644ef040771f9ddcbf437093b2a856c74b0dbc19ec9ee1b4c914"
+    },
+    {
+      "path": "desktop/src/GeminiBackgroundUsageClient.cs",
+      "bytes": 15071,
+      "sha256": "fb7279a81ed2b266f15c254e8804bc7336e62af20cb46762d503d10aeabcd844"
+    },
+    {
+      "path": "desktop/src/GeminiBridge.cs",
+      "bytes": 4776,
+      "sha256": "0985461015e42f7e1e32627705c367c97ea709bbbc69d05c79f4c51a58598667"
+    },
+    {
+      "path": "desktop/src/GeminiCliQuota.cs",
+      "bytes": 3323,
+      "sha256": "50236a12714348c33a29647ae91b74b2b5342a75ec7410bc69d5d3d7c119e891"
+    },
+    {
+      "path": "desktop/src/GeminiCliUsageClient.cs",
+      "bytes": 10274,
+      "sha256": "4c9cce52cbe466566ea3f51332e9028e8b3ecaa9c1394aa5478065dc17aec5d6"
+    },
+    {
+      "path": "desktop/src/GeminiConfiguration.cs",
+      "bytes": 3169,
+      "sha256": "b51f63630fcab253206823965013424b0553c7357255ab0e64e65fe98a0347e1"
+    },
+    {
+      "path": "desktop/src/GeminiConnectionWindow.cs",
+      "bytes": 5857,
+      "sha256": "19c7dd8df9a7ccd9a91829c9a7f24cbc2041cdaffe5ad79a7ddaafaa6ff930a2"
+    },
+    {
+      "path": "desktop/src/GeminiExistingSession.cs",
+      "bytes": 2198,
+      "sha256": "24c2635bd0e39b1aa6c0ef753a1f0c7dcfd267a3f8d1d9509d90a783f0d14cf7"
+    },
+    {
+      "path": "desktop/src/GeminiQuota.cs",
+      "bytes": 3349,
+      "sha256": "cb4037184a0096b39d94ef6553daa1039eb8a0a9e8bfc674277c687f5bbbd2ec"
+    },
+    {
+      "path": "desktop/src/GeminiUsageText.cs",
+      "bytes": 6796,
+      "sha256": "cf04fafbcb3bf54c2147cbcd2ecbad90fdb437e260a1ec0004b6d3456fcdbd85"
+    },
+    {
+      "path": "desktop/src/HorizontalMotionBlur.hlsl",
+      "bytes": 1356,
+      "sha256": "940366502c8bf6e318109145a4222fc82d3118349bbf8a98f40456d5e69eb34e"
+    },
+    {
+      "path": "desktop/src/HorizontalMotionBlur.ps",
+      "bytes": 1704,
+      "sha256": "ad9960ac720df1880c407dfaa0b4cf28bfd96fa79a1371327d0da3cdc659ef2f"
+    },
+    {
+      "path": "desktop/src/HorizontalMotionBlurEffect.cs",
+      "bytes": 1708,
+      "sha256": "309adec4296b0c0abbe8f73b198fd5ed9c4af367e74f27f6621922d7dec50974"
+    },
+    {
+      "path": "desktop/src/HubWorker.cs",
+      "bytes": 5135,
+      "sha256": "8e853b74dc487177985108ac42a05297310566fa6f13c788bddaed48fdf4ac37"
+    },
+    {
+      "path": "desktop/src/InsightsData.cs",
+      "bytes": 3992,
+      "sha256": "d2ad2734e1fdc2b17bde34c9877b4af4a0e1ffcdc5b6764d9f4c2dc60c2a12cc"
+    },
+    {
+      "path": "desktop/src/InsightsIncremental.cs",
+      "bytes": 3302,
+      "sha256": "dcd9f72631f07906f2bc094507738436508e0f9c2527c26aeed85cc12a4a8779"
+    },
+    {
+      "path": "desktop/src/InsightsPreferences.cs",
+      "bytes": 7272,
+      "sha256": "e751a6478a85542044883717c1fdf3c2abeee7413c0c4eb9bc73c336c35ef2f1"
+    },
+    {
+      "path": "desktop/src/InsightsQueries.cs",
+      "bytes": 5162,
+      "sha256": "8365a2481010be254acb475117647885ddbecb6694d21669dd3136e37f2d7615"
+    },
+    {
+      "path": "desktop/src/InsightsQuotaPlanning.cs",
+      "bytes": 12114,
+      "sha256": "0f60fa38bf35125da3e446a5f5c3cfe8777fb1bae996bed0270034b41f51e103"
+    },
+    {
+      "path": "desktop/src/InsightsReaders.cs",
+      "bytes": 5434,
+      "sha256": "f4673e5d6f64ad5b2aa82219688c4854945f4d9598fbcecd10338f0d7a0b8b6c"
+    },
+    {
+      "path": "desktop/src/InsightsRecovery.cs",
+      "bytes": 3042,
+      "sha256": "a67a503be648eb4e51aa63d9e48694fa369edcedcb650e0aaa78e3ec2f2712eb"
+    },
+    {
+      "path": "desktop/src/InsightsRetention.cs",
+      "bytes": 11821,
+      "sha256": "9e77482ab6587267d36d59bb5d14d3a3ba3d2da8c52726a62b885f19f1cba322"
+    },
+    {
+      "path": "desktop/src/InsightsRuntime.cs",
+      "bytes": 11251,
+      "sha256": "4048da274457fdfbabc320676b0fbc80af0216077881e03824ad6000eea02dc2"
+    },
+    {
+      "path": "desktop/src/InsightsSql.cs",
+      "bytes": 8082,
+      "sha256": "f9474417ae8af1579ba004bd1f32e530668aa83b874263f53999ed286a97431f"
+    },
+    {
+      "path": "desktop/src/InsightsStatistics.cs",
+      "bytes": 4956,
+      "sha256": "43fc8dbf506d54847ae6be3058e9899cf7ff27b355f3dbf4df16fe6f781f4b9b"
+    },
+    {
+      "path": "desktop/src/InsightsStore.cs",
+      "bytes": 10671,
+      "sha256": "b09df8f93e1eb8536624f51282a63c8b382b14f3bd898a97670ead93a0884638"
+    },
+    {
+      "path": "desktop/src/InsightsTaskEstimation.cs",
+      "bytes": 13935,
+      "sha256": "50796f1f0d3cb07de5c88257450bbd7eb020de527f3e432dfe31cfc877c4042d"
+    },
+    {
+      "path": "desktop/src/InsightsTaskbar.cs",
+      "bytes": 5501,
+      "sha256": "19713afe6ff8f6f54cfc7d116e3934f6ac0b913be913647e51274dc12e97b249"
+    },
+    {
+      "path": "desktop/src/InsightsView.cs",
+      "bytes": 35542,
+      "sha256": "aa0bc58409e54a0db2007d7c85ed215880b57c0c7c5cd7d8cba191a8469fcb86"
+    },
+    {
+      "path": "desktop/src/Lifecycle.cs",
+      "bytes": 15213,
+      "sha256": "fff3dc60a770b8edafc1eee92fb37980a55bb9f532493c100f92478362c775e3"
+    },
+    {
+      "path": "desktop/src/MonitorApp.cs",
+      "bytes": 45310,
+      "sha256": "e3b0ba5095cb842fc70d0d82bdceb92e77f904289e17734b6f341af98c2f1e9e"
+    },
+    {
+      "path": "desktop/src/MonitorLifecycle.cs",
+      "bytes": 6129,
+      "sha256": "ace28e2f451522c0c2a0cd3e295e518a027cee274108df628d88d7973eb7e91b"
+    },
+    {
+      "path": "desktop/src/NativeFont.cs",
+      "bytes": 1269,
+      "sha256": "dce034a0084434c639235a50939f3c7d0d792f23f5cd26f37d0f34310d81c890"
+    },
+    {
+      "path": "desktop/src/NativeLocale.cs",
+      "bytes": 6953,
+      "sha256": "ce277189330561665a4078dde7aeed7b70bdf7b75dee32f48ee6889feed76fd1"
+    },
+    {
+      "path": "desktop/src/Product.cs",
+      "bytes": 7996,
+      "sha256": "d4ab61ce27f84a6a0db853f3434351873992f9dc648d9c200b14afdce4f44246"
+    },
+    {
+      "path": "desktop/src/Provider.cs",
+      "bytes": 1631,
+      "sha256": "82a49e80bda5f4eb52395aa8da8a7934d895f08939dab3c8e8b0799868669b62"
+    },
+    {
+      "path": "desktop/src/PublisherTrust.cs",
+      "bytes": 3498,
+      "sha256": "4d23386906f177eb40e19db41be4d352ed8c54c1f21ceb5fb321e0c58a760f36"
+    },
+    {
+      "path": "desktop/src/QuotaRunway.cs",
+      "bytes": 12880,
+      "sha256": "8dcf41fae6d8f925694db6abc812053599ef1b216188a88283110510de3f4bea"
+    },
+    {
+      "path": "desktop/src/ReadingPresentation.cs",
+      "bytes": 10653,
+      "sha256": "7e1cc103d1aa231da0a2544caa81a25e127621166b59f701db731b95e664f6d5"
+    },
+    {
+      "path": "desktop/src/ResetPresentation.cs",
+      "bytes": 4742,
+      "sha256": "9afd136f5fccb90a0194571c051d1865d5de6d0dff54ce675513500d6667f852"
+    },
+    {
+      "path": "desktop/src/ResetRadarClient.cs",
+      "bytes": 5061,
+      "sha256": "837542442ff642b667a80d67df1e0a9e1e25dacd18d4e248ad947aca9f93d0f2"
+    },
+    {
+      "path": "desktop/src/SettingsStyles.xaml",
+      "bytes": 15110,
+      "sha256": "46b15029e1e30c5119ce50d8eaf0498c4e01108c40afc09b9710aba26569f115"
+    },
+    {
+      "path": "desktop/src/SettingsView.cs",
+      "bytes": 31647,
+      "sha256": "fc0521a48c2df17b5b2f01be877d53d61eb0550e16aa798b787e98177e9524b4"
+    },
+    {
+      "path": "desktop/src/SystemAwakeGuard.cs",
+      "bytes": 1625,
+      "sha256": "7a2827a3fbcb37158cd8922eee8edc518d4defb3cbf1717d08b02f0aa2a0a4fc"
+    },
+    {
+      "path": "desktop/src/ThemeCatalog.cs",
+      "bytes": 6833,
+      "sha256": "83eb9f1e840c180443d16b6df8725afff5a5c9d5e77c35278cc56168cfbb9155"
+    },
+    {
+      "path": "desktop/src/UnifiedAdditionalProviders.cs",
+      "bytes": 9176,
+      "sha256": "4ac836546b5771715a95a7aef5ddf5ea84c915fd3b1868f2560c330e113fb5b0"
+    },
+    {
+      "path": "desktop/src/UnifiedAssist.cs",
+      "bytes": 6982,
+      "sha256": "363aba3955b333896c5e53329f6942c0788d9681cd1fa54ccadcd6a95724cce4"
+    },
+    {
+      "path": "desktop/src/UnifiedClarity.cs",
+      "bytes": 7634,
+      "sha256": "1a3e0295543211f659da9bea61f9903fe06e90aa196435c56bde470268a43d48"
+    },
+    {
+      "path": "desktop/src/UnifiedInsights.cs",
+      "bytes": 5198,
+      "sha256": "28ea43fb4bb6831233502629e3d951c9c14734ed2a48adf08e03403f0f84ab47"
+    },
+    {
+      "path": "desktop/src/UnifiedMobileSnapshot.cs",
+      "bytes": 3130,
+      "sha256": "793ee7bf0efe3bd51a8cf2e0a74d18394eda5e7bd830fa2eb3ba0e1845415da7"
+    },
+    {
+      "path": "desktop/src/UnifiedModel.cs",
+      "bytes": 9846,
+      "sha256": "06c63e20930ce21e387e763d524735112e110fcdd52c8711a316680c66299093"
+    },
+    {
+      "path": "desktop/src/UnifiedMonitor.cs",
+      "bytes": 50921,
+      "sha256": "2591708e8abcb6f5c5eeeb8bf6449d894a28629af06e03ca4db3ef63604924a4"
+    },
+    {
+      "path": "desktop/src/UnifiedNotifications.cs",
+      "bytes": 8575,
+      "sha256": "a4b36d99fee08318e4f320c292de7f5cff2ef343c5d3ce74b070085a53251978"
+    },
+    {
+      "path": "desktop/src/UnifiedOnboarding.cs",
+      "bytes": 13708,
+      "sha256": "59db6128a86ab7d26faec85c3fb668e53589449ddfc607a9bdc24476b5acbe37"
+    },
+    {
+      "path": "desktop/src/UnifiedReaders.cs",
+      "bytes": 13830,
+      "sha256": "1623144b23f24a7e68fc6fb88372576653081c5d892ac2274be7b6ee454bec70"
+    },
+    {
+      "path": "desktop/src/UnifiedSettings.cs",
+      "bytes": 49753,
+      "sha256": "3a7edebe13aba4f4ac85b05603442bdaab99eb98f244fa4b22200ec51cf53fd7"
+    },
+    {
+      "path": "desktop/src/UnifiedVisuals.cs",
+      "bytes": 10294,
+      "sha256": "6f1c22ac307add7cc31d7a9b4b70715b0426fe289b9aec2b64dc363a04c5a69f"
+    },
+    {
+      "path": "desktop/src/UsageData.cs",
+      "bytes": 2542,
+      "sha256": "fc94cd43f74626db0e21abf3f8b3cc2308eca3b0a15e9b3b5bc9825b62225c30"
+    },
+    {
+      "path": "desktop/src/UsageHistory.cs",
+      "bytes": 8218,
+      "sha256": "6e405f50b735e1f01c32ffcd4cd708b5a99a583a5928b24bfbfdd759dcb2330d"
+    },
+    {
+      "path": "desktop/src/VerifiedUpdate.cs",
+      "bytes": 6796,
+      "sha256": "e27423c594c0dd02dd54e26eaea0a06ae0ca8d2dc6c1a866196650a6b92b777b"
+    },
+    {
+      "path": "desktop/src/Widget.xaml",
+      "bytes": 26936,
+      "sha256": "6985d4226d8b03954a1164a799e04a91976166dbfd00ee4c65d3928fba9275c5"
+    },
+    {
+      "path": "desktop/src/WindowSignal.cs",
+      "bytes": 1083,
+      "sha256": "18757f64138e9fa4bd4e25ab0725cbd617bf5f13a8522ab59e819d83e5c3f8c3"
+    },
+    {
+      "path": "desktop/src/app.manifest",
+      "bytes": 745,
+      "sha256": "9077b9893a90e2638fcfff3531ac6ff2728d23e134260bd6ada8b2539cf2be45"
+    },
+    {
+      "path": "desktop/vendor/WebView2/Microsoft.Web.WebView2.Core.dll",
+      "bytes": 698208,
+      "sha256": "d60e6e94245078cb56e44ebd5f360dc04bf18e460136be93bfc4cfca43b98505"
+    },
+    {
+      "path": "desktop/vendor/WebView2/WebView2-LICENSE.txt",
+      "bytes": 1487,
+      "sha256": "0af8f1b807512aae39c2ac1aa4d0cae65cabecb6fd554b8439a5162a0d6eca55"
+    },
+    {
+      "path": "desktop/vendor/WebView2/WebView2-NOTICE.txt",
+      "bytes": 3894,
+      "sha256": "106423785c5b7eba0a8e61d1837f2132e9c828e20ad530f565d981c1df60dd90"
+    },
+    {
+      "path": "desktop/vendor/WebView2/WebView2Loader.dll",
+      "bytes": 194912,
+      "sha256": "3426dcc55fdfb8b5e7ac623cf33b4ccf283fbf68a0c5a65bddfdb4d749a8abee"
+    },
+    {
+      "path": "planner/.github/ISSUE_TEMPLATE/bug_report.md",
+      "bytes": 310,
+      "sha256": "de4b6f99db3d8ab3a98eaa1ea6d969a122faca83a7a52f7e7f9c35b0b0c44e2e"
+    },
+    {
+      "path": "planner/.gitignore",
+      "bytes": 42,
+      "sha256": "c580f4181d5207900e5e20d4d6f515647e198722e49384a2a88e6caeb34afec3"
+    },
+    {
+      "path": "planner/CHANGELOG.md",
+      "bytes": 636,
+      "sha256": "fd9d498c458a6438b83d4ca8a39092bf12e437034fcf6826d6d1c0be2fe856c9"
+    },
+    {
+      "path": "planner/CONTRIBUTING.md",
+      "bytes": 745,
+      "sha256": "07c9b42beded360b667da0de50dd7e2ac21bb6519b87ee0b62779bd2a6d2d6af"
+    },
+    {
+      "path": "planner/LICENSE",
+      "bytes": 1069,
+      "sha256": "b6742872ceb6e95ac814b5fc561cec6a13d6651fdda6b79be0e61ce4ba12577b"
+    },
+    {
+      "path": "planner/PRIVACY.md",
+      "bytes": 496,
+      "sha256": "b2a48badd196ab838ddbef0ef033fd2c0136570e31d29d265b8820d0a408ce8b"
+    },
+    {
+      "path": "planner/README.md",
+      "bytes": 2607,
+      "sha256": "6673a379459a8c14fc754715568c710da34954eeb73c684e601d0dde9d937aea"
+    },
+    {
+      "path": "planner/SECURITY.md",
+      "bytes": 813,
+      "sha256": "cfb126a3726f80e72de78767a9944569af85928472e84503a624123c0901eb41"
+    },
+    {
+      "path": "planner/SUPPORT.md",
+      "bytes": 598,
+      "sha256": "8818f3c4edff97cf6ffa2c78760725636568df823691ca43d77c053fe899c148"
+    },
+    {
+      "path": "planner/THIRD-PARTY-NOTICES.md",
+      "bytes": 567,
+      "sha256": "506f088fec065a88953c0740c068776982d91ac3085a93035a1dfe09a2de457d"
+    },
+    {
+      "path": "planner/cli.mjs",
+      "bytes": 2294,
+      "sha256": "effb1a208e6eb12b5abc9821ab359ff1b4ef9491f1c0ae120545bca6b1f1f9bb"
+    },
+    {
+      "path": "planner/example.json",
+      "bytes": 67,
+      "sha256": "7d4b284741c1c5b74752bdd1b53c725b3fad85e0aa90b765d99da595ff775309"
+    },
+    {
+      "path": "planner/package-lock.json",
+      "bytes": 290,
+      "sha256": "2a4dc825d1f956bbda88fbfa158acf695763ecb60d2676377caf6e7c2071f9c0"
+    },
+    {
+      "path": "planner/package.json",
+      "bytes": 371,
+      "sha256": "d330e9d0dc9d8225df4395f52104fad9659b150da7609744543a43340d3742ae"
+    },
+    {
+      "path": "planner/src/quota-plan.ts",
+      "bytes": 2325,
+      "sha256": "88925f47c03ac441bf21f7a79d12b6d2f34c628e838e41991c7b31468daa3244"
+    },
+    {
+      "path": "planner/tests/cli.test.mjs",
+      "bytes": 2432,
+      "sha256": "eb68100b0e6c25e6d3d64bcd3fbbf81c1a73e2a6a897bac22b4b2bb0e1c5d76e"
+    },
+    {
+      "path": "planner/tests/quota-plan.test.mjs",
+      "bytes": 3238,
+      "sha256": "10d3cdbd063bd39f039aee8bc740cdde62336d199beb0e3f8783777e2ad80bfe"
+    }
+  ]
+}

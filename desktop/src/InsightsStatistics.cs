@@ -1,0 +1,24 @@
+using System;using System.Collections.Generic;using System.Globalization;using System.Linq;
+namespace CreditMonitor.Insights {
+ public sealed partial class HistoryStore {
+  void InitStatistics(){bool exists=Query("SELECT name FROM sqlite_master WHERE type='table' AND name='event_minutes'").Count>0;Run("SAVEPOINT statistics_migration");try{
+   Run("CREATE TABLE IF NOT EXISTS event_minutes(k TEXT PRIMARY KEY,tool TEXT,provider TEXT,account TEXT,device TEXT,model TEXT,project TEXT,session TEXT,at TEXT,i INTEGER,o INTEGER,c INTEGER,w INTEGER,r INTEGER,requests INTEGER) WITHOUT ROWID");Run("CREATE INDEX IF NOT EXISTS event_minutes_time ON event_minutes(at)");
+   if(!exists)Run("INSERT INTO event_minutes SELECT json_array(tool,provider,account,device,model,project,session,substr(at,1,16)),tool,provider,account,device,model,project,session,substr(at,1,16)||':00.0000000Z',SUM(i),SUM(o),SUM(c),SUM(w),SUM(r),COUNT(*) FROM events GROUP BY json_array(tool,provider,account,device,model,project,session,substr(at,1,16))");
+   string key="json_array({0}.tool,{0}.provider,{0}.account,{0}.device,{0}.model,{0}.project,{0}.session,substr({0}.at,1,16))";
+   string add="INSERT INTO event_minutes VALUES("+String.Format(key,"NEW")+",NEW.tool,NEW.provider,NEW.account,NEW.device,NEW.model,NEW.project,NEW.session,substr(NEW.at,1,16)||':00.0000000Z',NEW.i,NEW.o,NEW.c,NEW.w,NEW.r,1) ON CONFLICT(k) DO UPDATE SET i=event_minutes.i+excluded.i,o=event_minutes.o+excluded.o,c=event_minutes.c+excluded.c,w=event_minutes.w+excluded.w,r=event_minutes.r+excluded.r,requests=event_minutes.requests+1;";
+   string remove="UPDATE event_minutes SET i=i-OLD.i,o=o-OLD.o,c=c-OLD.c,w=w-OLD.w,r=r-OLD.r,requests=requests-1 WHERE k="+String.Format(key,"OLD")+";DELETE FROM event_minutes WHERE k="+String.Format(key,"OLD")+" AND requests<=0;";
+   Run("CREATE TRIGGER IF NOT EXISTS event_minutes_insert AFTER INSERT ON events BEGIN "+add+" END");Run("CREATE TRIGGER IF NOT EXISTS event_minutes_delete AFTER DELETE ON events BEGIN "+remove+" END");Run("CREATE TRIGGER IF NOT EXISTS event_minutes_update AFTER UPDATE ON events BEGIN "+remove+add+" END");Run("RELEASE statistics_migration");
+  }catch{Run("ROLLBACK TO statistics_migration");Run("RELEASE statistics_migration");throw;}}
+ }
+ public sealed partial class InsightQueries {
+  string AggregateSource(HistoryFilter filter,bool priced,DateTime? split=null){if(priced&&prices.Any(p=>p.EffectiveAt.ToUniversalTime().Ticks%TimeSpan.TicksPerMinute!=0))return HistoryStore.EventSource;var f=filter??new HistoryFilter();DateTime from=f.From.ToUniversalTime(),to=f.To.ToUniversalTime();DateTime floorFrom=new DateTime(from.Ticks-from.Ticks%TimeSpan.TicksPerMinute,DateTimeKind.Utc),first=from==floorFrom?from:floorFrom.AddMinutes(1),last=new DateTime(to.Ticks-to.Ticks%TimeSpan.TicksPerMinute,DateTimeKind.Utc);string a=InsightIdentity.Time(first),b=InsightIdentity.Time(last),exclude="",edge="";
+   if(split.HasValue&&split.Value.ToUniversalTime().Ticks%TimeSpan.TicksPerMinute!=0){DateTime at=split.Value.ToUniversalTime();var start=new DateTime(at.Ticks-at.Ticks%TimeSpan.TicksPerMinute,DateTimeKind.Utc);exclude=" AND at<>'"+InsightIdentity.Time(start)+"'";edge=" OR (at>='"+InsightIdentity.Time(start)+"' AND at<'"+InsightIdentity.Time(start.AddMinutes(1))+"')";}
+   var parts=new List<string>();string columns="k,tool,provider,account,device,model,project,session,at,i,o,c,w,r,";
+   if(first<last)parts.Add("SELECT "+columns+"'minute' granularity,requests FROM event_minutes WHERE at>='"+a+"' AND at<'"+b+"'"+exclude);
+   Action<DateTime,DateTime> raw=(lo,hi)=>{if(lo<from)lo=from;if(hi>to)hi=to;if(lo<hi)parts.Add("SELECT "+columns+"'event' granularity,1 requests FROM events WHERE at>='"+InsightIdentity.Time(lo)+"' AND at<'"+InsightIdentity.Time(hi)+"'");};
+   if(first>=last)raw(from,to);else{raw(from,first);raw(last,to);if(split.HasValue&&split.Value.ToUniversalTime().Ticks%TimeSpan.TicksPerMinute!=0){var at=split.Value.ToUniversalTime();var start=new DateTime(at.Ticks-at.Ticks%TimeSpan.TicksPerMinute,DateTimeKind.Utc);if(start>=first&&start<last)raw(start,start.AddMinutes(1));}}
+   parts.Add("SELECT "+columns+"granularity,requests FROM buckets WHERE at>='"+InsightIdentity.Time(from)+"' AND at<'"+InsightIdentity.Time(to)+"'");return "("+String.Join(" UNION ALL ",parts)+")";
+  }
+  void ExactEdges(InsightSummary result,HistoryFilter filter){var args=new List<object>();string where=HistoryStore.Where(filter,args);foreach(string table in new[]{"events","buckets"})foreach(bool first in new[]{true,false}){var rows=store.Query("SELECT at FROM "+table+" WHERE "+where+" ORDER BY at "+(first?"ASC":"DESC")+" LIMIT 1",args.ToArray());if(rows.Count==0)continue;var at=DateTime.Parse((string)rows[0]["at"],CultureInfo.InvariantCulture,DateTimeStyles.RoundtripKind);if(first&&(!result.First.HasValue||at<result.First.Value))result.First=at;if(!first&&(!result.Last.HasValue||at>result.Last.Value))result.Last=at;}}
+ }
+}

@@ -1,0 +1,279 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="360" Height="210" MinWidth="220" MinHeight="66" ResizeMode="CanResize" WindowStyle="None" ShowInTaskbar="False" Topmost="True" AllowsTransparency="True" Background="Transparent" ShowActivated="False" UseLayoutRounding="True" SnapsToDevicePixels="True" FontSize="14">
+  <Window.Resources>
+    <Style x:Key="ResizeThumb" TargetType="Thumb">
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="Thumb">
+            <Border Background="Transparent" />
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+    <Style x:Key="IconButton" TargetType="Button">
+      <Setter Property="Width" Value="26" />
+      <Setter Property="Height" Value="26" />
+      <Setter Property="FontFamily" Value="Segoe UI Symbol" />
+      <Setter Property="FontSize" Value="16" />
+      <Setter Property="Foreground" Value="{DynamicResource MutedBrush}" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="Cursor" Value="Hand" />
+      <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+      <Setter Property="ToolTipService.InitialShowDelay" Value="400" />
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="Button">
+            <Border x:Name="ButtonChrome" CornerRadius="{DynamicResource ButtonRadius}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+              <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <ControlTemplate.Triggers>
+              <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource HoverBrush}" />
+              <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+              </Trigger>
+              <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource PressedBrush}" />
+              </Trigger>
+              <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
+              </Trigger>
+              <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.45" />
+              </Trigger>
+            </ControlTemplate.Triggers>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+    <Style x:Key="RoundedProgress" TargetType="ProgressBar">
+      <Setter Property="Minimum" Value="0" />
+      <Setter Property="Maximum" Value="100" />
+      <Setter Property="Height" Value="8" />
+      <Setter Property="Background" Value="{DynamicResource TrackBrush}" />
+      <Setter Property="Foreground" Value="#94A3B8" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="ProgressBar">
+            <Grid x:Name="PART_Track" SnapsToDevicePixels="True">
+              <Border Background="{TemplateBinding Background}" CornerRadius="{DynamicResource BarRadius}" />
+              <Border x:Name="PART_Indicator" HorizontalAlignment="Left" Background="{TemplateBinding Foreground}" CornerRadius="{DynamicResource BarRadius}" />
+            </Grid>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+  </Window.Resources>
+  <Grid x:Name="WindowSurface" ClipToBounds="True">
+    <Border x:Name="RootCard" Background="{DynamicResource SurfaceBrush}" BorderBrush="{DynamicResource EdgeBrush}" BorderThickness="1" CornerRadius="{DynamicResource CardRadius}" Padding="14">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid x:Name="HeaderRow" Height="30">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+          <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock x:Name="HeaderTitle" Text="Claude" FontWeight="SemiBold" FontSize="13" Foreground="{DynamicResource TextBrush}" />
+            <TextBlock x:Name="HeaderSubtitle" Text="Code · remaining" Foreground="{DynamicResource MutedBrush}" FontSize="9" Margin="8,3,0,0" />
+          </StackPanel>
+          <StackPanel Grid.Column="1" Orientation="Horizontal">
+            <Button x:Name="RefreshButton" Style="{StaticResource IconButton}" Content="↻" ToolTip="อ่านค่าตอนนี้" />
+            <Button x:Name="SettingsButton" Style="{StaticResource IconButton}" Content="⚙" ToolTip="ธีม ขนาด และซ่อนริมจอ" />
+            <Button x:Name="PinButton" Style="{StaticResource IconButton}" ToolTip="ปักหมุด: ไม่ซ่อนริมจอ · Ctrl+P">
+              <Viewbox Width="16" Height="16">
+                <Grid Width="20" Height="20">
+                  <Path x:Name="PinGlyph" Data="M 6,2 L 14,2 L 13,8 L 16,11 L 16,13 L 4,13 L 4,11 L 7,8 Z M 10,13 L 10,19" StrokeThickness="1.6" StrokeLineJoin="Round" Stroke="{DynamicResource TextBrush}" />
+                  <Path x:Name="PinSlash" Data="M 3,3 L 17,17" Stroke="{DynamicResource MutedBrush}" StrokeThickness="1.6" Visibility="Collapsed" />
+                </Grid>
+              </Viewbox>
+            </Button>
+            <Button x:Name="CompactButton" Style="{StaticResource IconButton}" Content="↙" ToolTip="ย่อ / ขยาย" />
+            <Button x:Name="HideButton" Style="{StaticResource IconButton}" Content="−" ToolTip="ซ่อนไปถาดระบบ" />
+          </StackPanel>
+        </Grid>
+        <Grid x:Name="FullView" Grid.Row="1">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Border x:Name="FullCurrentCard" Grid.Row="0" CornerRadius="{DynamicResource ButtonRadius}">
+          <Grid Margin="0,4,0,4" x:Name="FullCurrentGrid">
+            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="92" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="116" />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="CurrentTitle" Text="CURRENT · 5h" FontWeight="SemiBold" Foreground="{DynamicResource MutedBrush}" VerticalAlignment="Center" />
+            <ProgressBar x:Name="CurrentProgress" Grid.Column="1" Style="{StaticResource RoundedProgress}" VerticalAlignment="Center" />
+            <Border Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="CurrentBadge" Width="64" Height="30" CornerRadius="{DynamicResource BadgeRadius}" BorderThickness="1">
+                <TextBlock x:Name="CurrentValue" Text="--" Foreground="#94A3B8" FontSize="14" FontWeight="SemiBold" TextAlignment="Center" VerticalAlignment="Center" />
+              </Border>
+              <TextBlock Grid.Row="1" Grid.ColumnSpan="3" TextTrimming="CharacterEllipsis" x:Name="CurrentReset" Text="Resets in —" Foreground="{DynamicResource MutedBrush}" FontSize="9" TextAlignment="Center" Margin="0,4,0,0" />
+          </Grid>
+          </Border>
+          <Border x:Name="FullWeeklyCard" Grid.Row="1" CornerRadius="{DynamicResource ButtonRadius}">
+          <Grid Margin="0,4,0,4" x:Name="FullWeeklyGrid">
+            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="92" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="116" />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="WeeklyTitle" Text="WEEKLY" FontWeight="SemiBold" Foreground="{DynamicResource MutedBrush}" VerticalAlignment="Center" />
+            <ProgressBar x:Name="WeeklyProgress" Grid.Column="1" Style="{StaticResource RoundedProgress}" VerticalAlignment="Center" />
+            <Border Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="WeeklyBadge" Width="64" Height="30" CornerRadius="{DynamicResource BadgeRadius}" BorderThickness="1">
+                <TextBlock x:Name="WeeklyValue" Text="--" Foreground="#94A3B8" FontSize="14" FontWeight="SemiBold" TextAlignment="Center" VerticalAlignment="Center" />
+              </Border>
+              <TextBlock Grid.Row="1" Grid.ColumnSpan="3" TextTrimming="CharacterEllipsis" x:Name="WeeklyReset" Text="Resets in —" Foreground="{DynamicResource MutedBrush}" FontSize="9" TextAlignment="Center" Margin="0,4,0,0" />
+          </Grid>
+          </Border>
+        </Grid>
+        <Grid x:Name="CompactView" Grid.Row="1" Visibility="Collapsed">
+          <Grid.RowDefinitions><RowDefinition Height="*"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+          <Grid x:Name="CompactCurrentGrid" Grid.Row="0" VerticalAlignment="Center" Margin="0,1">
+            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+            <Grid.ColumnDefinitions><ColumnDefinition Width="58"/><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+            <TextBlock x:Name="CompactCurrentTitle" Text="5h" Foreground="{DynamicResource MutedBrush}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+            <ProgressBar x:Name="CompactCurrentProgress" Grid.Column="1" Style="{StaticResource RoundedProgress}" VerticalAlignment="Center" Value="{Binding Value, ElementName=CurrentProgress}" Foreground="{Binding Foreground, ElementName=CurrentProgress}"/>
+            <Border x:Name="CompactCurrentBadge" Grid.Column="2" HorizontalAlignment="Right" CornerRadius="{DynamicResource BadgeRadius}" BorderThickness="1" Background="{Binding Background, ElementName=CurrentBadge}" BorderBrush="{Binding BorderBrush, ElementName=CurrentBadge}">
+              <TextBlock x:Name="CompactCurrentValue" Text="{Binding Text, ElementName=CurrentValue}" Foreground="{Binding Foreground, ElementName=CurrentValue}" FontWeight="SemiBold" TextAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <TextBlock x:Name="CompactCurrentReset" Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Text, ElementName=CurrentReset}" Foreground="{DynamicResource MutedBrush}" FontSize="9" TextAlignment="Center" TextTrimming="CharacterEllipsis" Margin="0,1,0,0"/>
+          </Grid>
+          <Grid x:Name="CompactWeeklyGrid" Grid.Row="1" VerticalAlignment="Center" Margin="0,1">
+            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+            <Grid.ColumnDefinitions><ColumnDefinition Width="58"/><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+            <TextBlock x:Name="CompactWeeklyTitle" Text="Weekly" Foreground="{DynamicResource MutedBrush}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+            <ProgressBar x:Name="CompactWeeklyProgress" Grid.Column="1" Style="{StaticResource RoundedProgress}" VerticalAlignment="Center" Value="{Binding Value, ElementName=WeeklyProgress}" Foreground="{Binding Foreground, ElementName=WeeklyProgress}"/>
+            <Border x:Name="CompactWeeklyBadge" Grid.Column="2" HorizontalAlignment="Right" CornerRadius="{DynamicResource BadgeRadius}" BorderThickness="1" Background="{Binding Background, ElementName=WeeklyBadge}" BorderBrush="{Binding BorderBrush, ElementName=WeeklyBadge}">
+              <TextBlock x:Name="CompactWeeklyValue" Text="{Binding Text, ElementName=WeeklyValue}" Foreground="{Binding Foreground, ElementName=WeeklyValue}" FontWeight="SemiBold" TextAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <TextBlock x:Name="CompactWeeklyReset" Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Text, ElementName=WeeklyReset}" Foreground="{DynamicResource MutedBrush}" FontSize="9" TextAlignment="Center" TextTrimming="CharacterEllipsis" Margin="0,1,0,0"/>
+          </Grid>
+        </Grid>
+        <Grid x:Name="WideView" Grid.Row="1" Visibility="Collapsed">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="24" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Grid x:Name="WideCurrentGrid" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="60" /><ColumnDefinition Width="*" /><ColumnDefinition Width="110" /></Grid.ColumnDefinitions>
+            <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+            <TextBlock x:Name="WideCurrentTitle" Text="5h" Foreground="{DynamicResource TextBrush}" FontWeight="SemiBold" VerticalAlignment="Center" />
+            <ProgressBar x:Name="WideCurrentProgress" Grid.Column="1" Style="{StaticResource RoundedProgress}" VerticalAlignment="Center" Margin="0,0,12,0" Value="{Binding Value, ElementName=CurrentProgress}" Foreground="{Binding Foreground, ElementName=CurrentProgress}" />
+            <Border x:Name="WideCurrentBadge" Grid.Column="2" HorizontalAlignment="Center" CornerRadius="{DynamicResource BadgeRadius}" BorderThickness="1" Background="{Binding Background, ElementName=CurrentBadge}" BorderBrush="{Binding BorderBrush, ElementName=CurrentBadge}">
+              <TextBlock x:Name="WideCurrentValue" Text="{Binding Text, ElementName=CurrentValue}" Foreground="{Binding Foreground, ElementName=CurrentValue}" FontWeight="SemiBold" TextAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <TextBlock x:Name="WideCurrentReset" Grid.Row="1" Grid.ColumnSpan="3" TextTrimming="CharacterEllipsis" Text="{Binding Text, ElementName=CurrentReset}" Foreground="{DynamicResource MutedBrush}" FontSize="9" TextAlignment="Center" Margin="0,2,0,0" />
+          </Grid>
+          <Border Grid.Column="1" Width="1" Background="{DynamicResource MetricEdgeBrush}" Margin="0,3" />
+          <Grid x:Name="WideWeeklyGrid" Grid.Column="2" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="60" /><ColumnDefinition Width="*" /><ColumnDefinition Width="110" /></Grid.ColumnDefinitions>
+            <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+            <TextBlock x:Name="WideWeeklyTitle" Text="Weekly" Foreground="{DynamicResource TextBrush}" FontWeight="SemiBold" VerticalAlignment="Center" />
+            <ProgressBar x:Name="WideWeeklyProgress" Grid.Column="1" Style="{StaticResource RoundedProgress}" VerticalAlignment="Center" Margin="0,0,12,0" Value="{Binding Value, ElementName=WeeklyProgress}" Foreground="{Binding Foreground, ElementName=WeeklyProgress}" />
+            <Border x:Name="WideWeeklyBadge" Grid.Column="2" HorizontalAlignment="Center" CornerRadius="{DynamicResource BadgeRadius}" BorderThickness="1" Background="{Binding Background, ElementName=WeeklyBadge}" BorderBrush="{Binding BorderBrush, ElementName=WeeklyBadge}">
+              <TextBlock x:Name="WideWeeklyValue" Text="{Binding Text, ElementName=WeeklyValue}" Foreground="{Binding Foreground, ElementName=WeeklyValue}" FontWeight="SemiBold" TextAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <TextBlock x:Name="WideWeeklyReset" Grid.Row="1" Grid.ColumnSpan="3" TextTrimming="CharacterEllipsis" Text="{Binding Text, ElementName=WeeklyReset}" Foreground="{DynamicResource MutedBrush}" FontSize="9" TextAlignment="Center" Margin="0,2,0,0" />
+          </Grid>
+        </Grid>
+        <Grid x:Name="HorizontalView" Grid.Row="1" Visibility="Collapsed">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Grid Grid.Row="0" Margin="0,1" x:Name="RowCurrentGrid">
+            <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="50" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="RowCurrentTitle" Text="5h" Foreground="{DynamicResource MutedBrush}" FontSize="10" FontWeight="SemiBold" VerticalAlignment="Center" />
+            <ProgressBar x:Name="RowCurrentProgress" Grid.Column="1" Style="{StaticResource RoundedProgress}" Height="5" VerticalAlignment="Center" Value="{Binding Value, ElementName=CurrentProgress}" Foreground="{Binding Foreground, ElementName=CurrentProgress}" />
+            <TextBlock x:Name="RowCurrentValue" Grid.Column="2" Text="{Binding Text, ElementName=CurrentValue}" Foreground="{Binding Foreground, ElementName=CurrentValue}" FontSize="10" FontWeight="SemiBold" TextAlignment="Right" VerticalAlignment="Center" />
+            <TextBlock x:Name="RowCurrentReset" Grid.Row="1" Grid.ColumnSpan="3" TextTrimming="CharacterEllipsis" Text="{Binding Text, ElementName=CurrentReset}" Foreground="{DynamicResource MutedBrush}" FontSize="9" TextAlignment="Center" Visibility="Collapsed" />
+          </Grid>
+          <Grid Grid.Row="1" Margin="0,1" x:Name="RowWeeklyGrid">
+            <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="50" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="RowWeeklyTitle" Text="Weekly" Foreground="{DynamicResource MutedBrush}" FontSize="10" FontWeight="SemiBold" VerticalAlignment="Center" />
+            <ProgressBar x:Name="RowWeeklyProgress" Grid.Column="1" Style="{StaticResource RoundedProgress}" Height="5" VerticalAlignment="Center" Value="{Binding Value, ElementName=WeeklyProgress}" Foreground="{Binding Foreground, ElementName=WeeklyProgress}" />
+            <TextBlock x:Name="RowWeeklyValue" Grid.Column="2" Text="{Binding Text, ElementName=WeeklyValue}" Foreground="{Binding Foreground, ElementName=WeeklyValue}" FontSize="10" FontWeight="SemiBold" TextAlignment="Right" VerticalAlignment="Center" />
+            <TextBlock x:Name="RowWeeklyReset" Grid.Row="1" Grid.ColumnSpan="3" TextTrimming="CharacterEllipsis" Text="{Binding Text, ElementName=WeeklyReset}" Foreground="{DynamicResource MutedBrush}" FontSize="9" TextAlignment="Center" Visibility="Collapsed" />
+          </Grid>
+        </Grid>
+        <Grid xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="TallView" Grid.Row="1" Visibility="Collapsed">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Border xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="TallCurrentCard" Grid.Row="0" Margin="0,5" CornerRadius="{DynamicResource ButtonRadius}" Background="{DynamicResource MetricSurfaceBrush}" BorderBrush="{DynamicResource MetricEdgeBrush}">
+  <Grid x:Name="TallCurrentGroup" VerticalAlignment="Center">
+    <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+    <TextBlock x:Name="TallCurrentTitle" Text="5h" FontWeight="SemiBold" Foreground="{DynamicResource MutedBrush}" VerticalAlignment="Center" />
+    <Border x:Name="TallCurrentBadge" HorizontalAlignment="Right" CornerRadius="{DynamicResource BadgeRadius}" BorderThickness="1" Background="{Binding Background, ElementName=CurrentBadge}" BorderBrush="{Binding BorderBrush, ElementName=CurrentBadge}">
+      <TextBlock x:Name="TallCurrentValue" Text="{Binding Text, ElementName=CurrentValue}" Foreground="{Binding Foreground, ElementName=CurrentValue}" FontWeight="SemiBold" TextAlignment="Center" VerticalAlignment="Center" />
+    </Border>
+    <TextBlock x:Name="TallCurrentReset" Grid.Row="2" TextTrimming="CharacterEllipsis" Text="{Binding Text, ElementName=CurrentReset}" Foreground="{DynamicResource MutedBrush}" FontSize="9" TextAlignment="Center" Margin="0,3,0,0" />
+    <ProgressBar x:Name="TallCurrentProgress" Grid.Row="3" Style="{StaticResource RoundedProgress}" Margin="0,7,0,0" Value="{Binding Value, ElementName=CurrentProgress}" Foreground="{Binding Foreground, ElementName=CurrentProgress}" />
+  </Grid>
+</Border>
+          <Border xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="TallWeeklyCard" Grid.Row="1" Margin="0,5" CornerRadius="{DynamicResource ButtonRadius}" Background="{DynamicResource MetricSurfaceBrush}" BorderBrush="{DynamicResource MetricEdgeBrush}">
+  <Grid x:Name="TallWeeklyGroup" VerticalAlignment="Center">
+    <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+    <TextBlock x:Name="TallWeeklyTitle" Text="Weekly" FontWeight="SemiBold" Foreground="{DynamicResource MutedBrush}" VerticalAlignment="Center" />
+    <Border x:Name="TallWeeklyBadge" HorizontalAlignment="Right" CornerRadius="{DynamicResource BadgeRadius}" BorderThickness="1" Background="{Binding Background, ElementName=WeeklyBadge}" BorderBrush="{Binding BorderBrush, ElementName=WeeklyBadge}">
+      <TextBlock x:Name="TallWeeklyValue" Text="{Binding Text, ElementName=WeeklyValue}" Foreground="{Binding Foreground, ElementName=WeeklyValue}" FontWeight="SemiBold" TextAlignment="Center" VerticalAlignment="Center" />
+    </Border>
+    <TextBlock x:Name="TallWeeklyReset" Grid.Row="2" TextTrimming="CharacterEllipsis" Text="{Binding Text, ElementName=WeeklyReset}" Foreground="{DynamicResource MutedBrush}" FontSize="9" TextAlignment="Center" Margin="0,3,0,0" />
+    <ProgressBar x:Name="TallWeeklyProgress" Grid.Row="3" Style="{StaticResource RoundedProgress}" Margin="0,7,0,0" Value="{Binding Value, ElementName=WeeklyProgress}" Foreground="{Binding Foreground, ElementName=WeeklyProgress}" />
+  </Grid>
+</Border>
+        </Grid>
+        <Grid x:Name="StatusRow" Grid.Row="2" Height="18" Margin="0,3,0,0">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="14" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+          <Ellipse x:Name="ConnectionDot" Width="7" Height="7" Fill="#94A3B8" HorizontalAlignment="Left" VerticalAlignment="Center" />
+          <TextBlock x:Name="StatusLabel" Grid.Column="1" Text="กำลังเชื่อมต่อ…" Foreground="{DynamicResource MutedBrush}" FontSize="9" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" />
+          <Button xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="MiniPinButton" Grid.Column="2" Style="{StaticResource IconButton}" Width="22" Height="18" Visibility="Collapsed" ToolTip="ปักหมุด / ซ่อนริมจออัตโนมัติ · Ctrl+P">
+  <Viewbox Width="13" Height="13"><Grid Width="20" Height="20">
+    <Path x:Name="MiniPinGlyph" Data="M 6,2 L 14,2 L 13,8 L 16,11 L 16,13 L 4,13 L 4,11 L 7,8 Z M 10,13 L 10,19" StrokeThickness="1.6" StrokeLineJoin="Round" Stroke="{DynamicResource TextBrush}" />
+    <Path x:Name="MiniPinSlash" Data="M 3,3 L 17,17" Stroke="{DynamicResource MutedBrush}" StrokeThickness="1.6" Visibility="Collapsed" />
+  </Grid></Viewbox>
+</Button>
+          <StackPanel x:Name="StripActions" Grid.Column="3" Orientation="Horizontal" Visibility="Collapsed">
+            <Button x:Name="StripRefreshButton" Style="{StaticResource IconButton}" Width="22" Height="18" FontSize="14" Content="↻" ToolTip="อ่านค่าตอนนี้ · Ctrl+R" />
+            <Button x:Name="StripSettingsButton" Style="{StaticResource IconButton}" Width="22" Height="18" FontSize="14" Content="⚙" ToolTip="ธีม ขนาด และซ่อนริมจอ" />
+            <Button x:Name="StripHideButton" Style="{StaticResource IconButton}" Width="22" Height="18" FontSize="14" Content="−" ToolTip="ซ่อนไปถาดระบบ · Esc" />
+          </StackPanel>
+        </Grid>
+      </Grid>
+    </Border>
+    <Thumb x:Name="ResizeN" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto" Height="6" Cursor="SizeNS" Style="{StaticResource ResizeThumb}" ToolTip="ลากเพื่อปรับขนาด" />
+    <Thumb x:Name="ResizeS" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Width="Auto" Height="6" Cursor="SizeNS" Style="{StaticResource ResizeThumb}" ToolTip="ลากเพื่อปรับขนาด" />
+    <Thumb x:Name="ResizeW" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="6" Height="Auto" Cursor="SizeWE" Style="{StaticResource ResizeThumb}" ToolTip="ลากเพื่อปรับขนาด" />
+    <Thumb x:Name="ResizeE" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="6" Height="Auto" Cursor="SizeWE" Style="{StaticResource ResizeThumb}" ToolTip="ลากเพื่อปรับขนาด" />
+    <Thumb x:Name="ResizeNW" HorizontalAlignment="Left" VerticalAlignment="Top" Width="10" Height="10" Cursor="SizeNWSE" Style="{StaticResource ResizeThumb}" ToolTip="ลากเพื่อปรับขนาด" />
+    <Thumb x:Name="ResizeNE" HorizontalAlignment="Right" VerticalAlignment="Top" Width="10" Height="10" Cursor="SizeNESW" Style="{StaticResource ResizeThumb}" ToolTip="ลากเพื่อปรับขนาด" />
+    <Thumb x:Name="ResizeSW" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="10" Height="10" Cursor="SizeNESW" Style="{StaticResource ResizeThumb}" ToolTip="ลากเพื่อปรับขนาด" />
+    <Thumb x:Name="ResizeSE" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="10" Height="10" Cursor="SizeNWSE" Style="{StaticResource ResizeThumb}" ToolTip="ลากเพื่อปรับขนาด" />
+  </Grid>
+</Window>

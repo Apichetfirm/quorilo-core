@@ -1,0 +1,7 @@
+node_modules/
+outputs/
+build-free-core/
+build-private/
+*.log
+.env
+.env.*

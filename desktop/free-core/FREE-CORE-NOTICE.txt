@@ -1,0 +1,12 @@
+Quorilo Monitor Free Core — private prerelease candidate
+
+Local monitoring, settings, history, notifications and supported separate provider
+profiles are free forever: no Quorilo login, trial deadline or Stripe subscription
+is required. Provider accounts, provider charges and service limits remain separate.
+Free Core does not grant cloud-service, owner-administration or automated-action rights.
+
+The proposed MIT source license applies only to the selected clean export and
+awaits Founder approval. The earlier Reset Planner MIT grant does not cover this
+Windows source. This notice grants no customer distribution, public publication,
+or license for the private monorepo. Historical Account/QA/Owner terms remain intact.
+Keep third-party notices with their corresponding fonts and WebView2 components.
