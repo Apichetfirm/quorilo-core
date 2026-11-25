@@ -5,8 +5,7 @@ profiles are free forever: no Quorilo login, trial deadline or Stripe subscripti
 is required. Provider accounts, provider charges and service limits remain separate.
 Free Core does not grant cloud-service, owner-administration or automated-action rights.
 
-The proposed MIT source license applies only to the selected clean export and
-awaits Founder approval. The earlier Reset Planner MIT grant does not cover this
-Windows source. This notice grants no customer distribution, public publication,
-or license for the private monorepo. Historical Account/QA/Owner terms remain intact.
-Keep third-party notices with their corresponding fonts and WebView2 components.
+AGPL-3.0-only applies to the selected Quorilo Free Core desktop source. See the
+root LICENSE in the clean source export. The offline Reset Planner has its own MIT
+license. Keep third-party notices with their corresponding fonts and WebView2
+components.

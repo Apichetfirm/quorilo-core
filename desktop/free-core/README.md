@@ -38,6 +38,6 @@ Free rights grant no owner tools, server permissions, remote approval or dispatc
 The verified update/signature checking code remains intact; this source build does
 not configure or automatically download/install updates.
 
-See `FREE-CORE-NOTICE.txt`. Proposed MIT licensing for the selected clean export
-requires Founder approval. Compilation/fixture checks are separate from real
-Windows/provider acceptance and do not authorize customer distribution.
+The selected Quorilo Free Core desktop source uses `AGPL-3.0-only`. See
+`FREE-CORE-NOTICE.txt` and the root `LICENSE` in the clean source export.
+Compilation and fixture checks are separate from Windows and provider acceptance.

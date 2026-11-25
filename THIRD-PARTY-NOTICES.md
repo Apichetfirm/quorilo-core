@@ -14,7 +14,6 @@ reader even though the CLI itself is not redistributed.
 
 Provider logo PNGs and private branding assets are excluded pending explicit
 redistribution rights; the desktop has text fallbacks. Provider names identify
-integrations and do not imply sponsorship. The offline planner retains its MIT
-notice. The new desktop MIT text remains a proposal until the owner approves the
-exact scope/source/target. This does not license the private monorepo or external
-services; ownership representation and independent export review remain required.
+integrations and do not imply sponsorship. The offline Reset Planner retains its
+[MIT license](planner/LICENSE). [AGPL-3.0-only](LICENSE) covers the selected Quorilo
+Free Core desktop source.

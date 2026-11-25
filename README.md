@@ -75,6 +75,12 @@ Contributions, reproducible issues and documentation improvements are welcome.
 Use CONTRIBUTING.md and SECURITY.md; do not submit private profiles, cookies or keys.
 See ARCHITECTURE.md for separation and CHANGELOG.md for candidate release notes.
 
-The proposed license is MIT for this selected distribution, subject to the
-publisher's final approval before publication. Third-party SDK/font terms remain
-in their corresponding notices; provider names do not imply affiliation.
+## License
+
+The selected Quorilo Free Core desktop source is licensed under [AGPL-3.0-only](LICENSE).
+Copyright (c) 2026 Firm Impulse.
+
+Versions published before this commit were released under the MIT License, and those copies remain available under MIT. Starting with this commit, the selected Quorilo Free Core source is licensed under `AGPL-3.0-only`.
+
+The offline Reset Planner has its own [MIT license](planner/LICENSE). See
+[THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) for the dependency licenses.
