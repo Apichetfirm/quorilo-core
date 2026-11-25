@@ -1,6 +1,7 @@
 {
   "schema": 1,
   "edition": "FreeCore",
+  "license": "AGPL-3.0-only",
   "unifiedSources": [
     "CompiledViews.cs",
     "MonitorLifecycle.cs",

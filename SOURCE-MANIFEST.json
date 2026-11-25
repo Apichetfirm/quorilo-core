@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "edition": "FreeCore",
-  "licenseProposal": "MIT",
+  "license": "AGPL-3.0-only",
   "files": [
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -25,8 +25,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 516,
-      "sha256": "8106b2f45b49dc45f1bb23566dd892a899f08e657d3f09fe52ab4705aafa90f3"
+      "bytes": 771,
+      "sha256": "a0078945162fc4cdb81f060b61ec7c46d43ce13376544c32d13a2728a90c0355"
     },
     {
       "path": "CODE_OF_CONDUCT.md",
@@ -35,8 +35,8 @@
     },
     {
       "path": "CONTRIBUTING.md",
-      "bytes": 656,
-      "sha256": "c92a99a2d5396fe3aaca90ca814ef88a7862347d1d1f5cfdd262c83f1a1a0893"
+      "bytes": 850,
+      "sha256": "4fc56dd28f298340c0df1cc5c9e2e6f3d95efbc1410ee0daf8e9be9f15b70d04"
     },
     {
       "path": "DEPENDENCY-PROVENANCE.json",
@@ -45,13 +45,13 @@
     },
     {
       "path": "LICENSE",
-      "bytes": 1069,
-      "sha256": "b6742872ceb6e95ac814b5fc561cec6a13d6651fdda6b79be0e61ce4ba12577b"
+      "bytes": 34524,
+      "sha256": "8d56b405468aad11f87ab5763f901e276e08d9646ff5c8481b1762b6b789e9ed"
     },
     {
       "path": "README.md",
-      "bytes": 4041,
-      "sha256": "7a7a43a62e3b0d13c63c15e3a53729acc659083a8908ee64f72a4bdacb4d4c5b"
+      "bytes": 4321,
+      "sha256": "c660a17009be400f1ab3b028a12ad9f30c0ae99b4a0fb23d47f96be3b874e53f"
     },
     {
       "path": "SECURITY.md",
@@ -65,8 +65,8 @@
     },
     {
       "path": "THIRD-PARTY-NOTICES.md",
-      "bytes": 1278,
-      "sha256": "ffa1db5bc7bb4980a55b1e9ce5fdb05c46e33f703cdc5fef631c96c0e8b40be8"
+      "bytes": 1146,
+      "sha256": "a5d2589857e4b8bd9a80c2e274631aee655d2afbba7d66867a78e612b12b8be9"
     },
     {
       "path": "desktop/assets/Fonts/NotoSansThai-Bold.ttf",
@@ -115,8 +115,8 @@
     },
     {
       "path": "desktop/free-core/FREE-CORE-NOTICE.txt",
-      "bytes": 808,
-      "sha256": "4e058da3208ce4cf3cd2d922d8cc8318b710f9949b81927723135fdddfd3fc0a"
+      "bytes": 654,
+      "sha256": "f488aa390d9fa9f1d71feb8f969f3cd069febcbee4812969d81c022cf8f7d8b0"
     },
     {
       "path": "desktop/free-core/PRIVACY.th.md",
@@ -125,13 +125,13 @@
     },
     {
       "path": "desktop/free-core/README.md",
-      "bytes": 2557,
-      "sha256": "16dd7178dce29bc5a3924dc9986a0a0be653d3f2f222fbe93b04b9778e35963e"
+      "bytes": 2555,
+      "sha256": "28bf7be8e7f4000c6f8a8fafc90c085f1e590db23530eb7698b1c6cea541edcd"
     },
     {
       "path": "desktop/free-core/source-manifest.json",
-      "bytes": 3306,
-      "sha256": "cdd13292944148fa03c9d5a5e4478456d7639c3c65cf17fb1327e524b990f160"
+      "bytes": 3336,
+      "sha256": "20ea360803e64323083522abf8ed3ec834e76868ed71ddf8dd44586b385f016a"
     },
     {
       "path": "desktop/src/AdditionalProviderRuntime.cs",

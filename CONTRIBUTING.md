@@ -1,5 +1,9 @@
 # Contributing
 
+Contributions to the selected Quorilo Free Core desktop source are licensed under
+[AGPL-3.0-only](LICENSE). The offline Reset Planner has its own
+[contribution terms](planner/CONTRIBUTING.md).
+
 Open a focused issue describing the supported platform/channel, expected behavior,
 minimal steps and redacted observations. Discuss material changes before broad
 refactoring. Keep a change in one focused pull request with relevant checks.

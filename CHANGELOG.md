@@ -1,5 +1,9 @@
 # Changelog
 
+## License change — 2026-11-25
+
+Versions published before this commit were released under the MIT License, and those copies remain available under MIT. Starting with this commit, the selected Quorilo Free Core source is licensed under `AGPL-3.0-only`.
+
 ## Free Core source candidate
 
 - Dedicated FREE_CORE build and explicit local capability boundary.
